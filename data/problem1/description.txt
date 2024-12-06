@@ -1,30 +1,47 @@
-224. Basic Calculator
-Given a string s representing a valid expression, implement a basic calculator to evaluate it, and return the result of the evaluation.
+Problem: Strongly Connected Components (SCC)
+Write a program to find and print the Strongly Connected Components (SCCs) of a directed graph.
 
-Note: You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as eval().
+Definition of SCC
+An SCC (Strongly Connected Component) is the largest subset of vertices in which:
+For any two vertices u and v in the subset, there exist paths u→v and v→u.
 
- 
+Input:
+The first line contains two integers V and E:
+V: The number of vertices in the graph (1≤V≤10,000).
+E: The number of directed edges in the graph (1≤E≤100,000).
+The next E lines contain two integers A and B, indicating a directed edge from vertex A to vertex B.
+Vertices are numbered from 1 to V.
 
-Example 1:
+Output:
+Print the number of SCCs K on the first line.
+For each of the K SCCs, print the vertices in the SCC on a single line:
+Vertices in each SCC should be sorted in ascending order.
+End each line with -1 to signify the end of the SCC.
+SCCs should be ordered by the smallest vertex number in each SCC in ascending order.
 
-Input: s = "1 + 1"
-Output: 2
-Example 2:
+Example:
+Input:
+7 9
+1 4
+4 5
+5 1
+1 6
+6 7
+2 7
+7 3
+3 7
+7 2
 
-Input: s = " 2-1 + 2 "
-Output: 3
-Example 3:
+Output:
+3
+1 4 5 -1
+2 3 7 -1
+6 -1
 
-Input: s = "(1+(4+5+2)-3)+(6+8)"
-Output: 23
- 
 
 Constraints:
-
-1 <= s.length <= 3 * 105
-s consists of digits, '+', '-', '(', ')', and ' '.
-s represents a valid expression.
-'+' is not used as a unary operation (i.e., "+1" and "+(2 + 3)" is invalid).
-'-' could be used as a unary operation (i.e., "-1" and "-(2 + 3)" is valid).
-There will be no two consecutive operators in the input.
-Every number and running calculation will fit in a signed 32-bit integer.
+Vertex Numbering: Vertices are numbered from 1 to V.
+Graph Size: 1≤V≤10,000, 1≤E≤100,000.
+Vertices in each SCC are sorted in ascending order.
+SCCs are ordered by the smallest vertex in each component.
+SCC results are guaranteed to exist and fit the output format.

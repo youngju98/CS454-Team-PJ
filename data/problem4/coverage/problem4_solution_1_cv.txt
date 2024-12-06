@@ -1,0 +1,12 @@
+Coverage Report
+==================================================
+Coverage Percentage: 88.89%
+
+Uncovered Code Lines:
+--------------------------------------------------
+Line 12: continue
+--------------------------------------------------
+
+Not coverd = {
+    (calculate(s),12),  # continue
+}

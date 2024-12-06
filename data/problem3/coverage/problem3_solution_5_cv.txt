@@ -1,0 +1,28 @@
+Coverage Report
+==================================================
+Coverage Percentage: 43.75%
+
+Uncovered Code Lines:
+--------------------------------------------------
+Line 7: A, B, C = map(int, lines[i].split())
+Line 8: e.append((A, B, C))
+Line 17: p[x] = get_p(p[x])
+Line 21: a = get_p(a)
+Line 22: b = get_p(b)
+Line 24: p[b] = a
+Line 26: p[a] = b
+Line 34: union_p(a, b)
+Line 35: answer += cost
+--------------------------------------------------
+
+Not coverd = {
+    (calculate(s),7),  # A, B, C = map(int, lines[i].split())
+    (calculate(s),8),  # e.append((A, B, C))
+    (calculate(s),17),  # p[x] = get_p(p[x])
+    (calculate(s),21),  # a = get_p(a)
+    (calculate(s),22),  # b = get_p(b)
+    (calculate(s),24),  # p[b] = a
+    (calculate(s),26),  # p[a] = b
+    (calculate(s),34),  # union_p(a, b)
+    (calculate(s),35),  # answer += cost
+}

@@ -1,3 +1,3 @@
 class Solution:
-    def calculate(self, s: str) -> int:
+    def calculate(self, s: str) -> str:
         

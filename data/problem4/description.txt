@@ -1,0 +1,30 @@
+N Queens II
+The task is to place n queens on an n×n chessboard such that:
+No two queens attack each other. 
+Queens attack in horizontal, vertical, and diagonal directions.
+Given n, you must return the number of distinct solutions to this problem.
+
+Input and Output
+Input:
+An integer n (where 1 ≤ n ≤ 9).
+
+Output:
+An integer representing the number of distinct solutions.
+
+Example 1:
+
+Input: 
+n=4
+Output: 
+2
+
+Example 2:
+
+Input: 
+n=1
+Output: 
+1
+
+Constraints
+1 ≤ n ≤ 9
+The solution should efficiently handle all possible board configurations for n.

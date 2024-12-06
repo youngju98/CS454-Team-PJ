@@ -1,0 +1,22 @@
+Coverage Report
+==================================================
+Coverage Percentage: 79.31%
+
+Uncovered Code Lines:
+--------------------------------------------------
+Line 9: a, b = map(int, line.split())
+Line 10: graph[a - 1].append(b - 1)  # Convert node numbers to 0-indexed
+Line 21: nonlocal id
+Line 30: parent = min(parent, dfs(next))
+Line 42: break
+Line 50: dfs(i)
+--------------------------------------------------
+
+Not coverd = {
+    (calculate(s),9),  # a, b = map(int, line.split())
+    (calculate(s),10),  # graph[a - 1].append(b - 1)  # Convert node numbers to 0-indexed
+    (calculate(s),21),  # nonlocal id
+    (calculate(s),30),  # parent = min(parent, dfs(next))
+    (calculate(s),42),  # break
+    (calculate(s),50),  # dfs(i)
+}

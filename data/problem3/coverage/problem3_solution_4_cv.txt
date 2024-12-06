@@ -1,0 +1,20 @@
+Coverage Report
+==================================================
+Coverage Percentage: 70.59%
+
+Uncovered Code Lines:
+--------------------------------------------------
+Line 7: A, B, C = map(int, lines[i].split())
+Line 8: edges.append((A, B, C))
+Line 16: x = parent[x]
+Line 33: union(a, b)
+Line 34: answer += c
+--------------------------------------------------
+
+Not coverd = {
+    (calculate(s),7),  # A, B, C = map(int, lines[i].split())
+    (calculate(s),8),  # edges.append((A, B, C))
+    (calculate(s),16),  # x = parent[x]
+    (calculate(s),33),  # union(a, b)
+    (calculate(s),34),  # answer += c
+}

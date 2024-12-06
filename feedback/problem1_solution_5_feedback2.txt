@@ -1,0 +1,29 @@
+### 코드 구현 정확도
+- 제출된 솔루션은 Strongly Connected Components (SCC) 문제를 해결하기 위해 Kosaraju's Algorithm을 사용하지 않고 Tarjan's Algorithm을 기반으로 구현하였습니다. 그러나, Tarjan's Algorithm의 구현이 완벽하지 않습니다. 예를 들어, Tarjan's Algorithm에서는 low-link value를 사용하여 SCC를 결정하는데, 제출된 코드에서는 이 부분이 정확하게 구현되지 않았습니다.
+- 코드는 SCC를 찾는 데 성공하지만, Kosaraju's Algorithm을 사용하지 않고 Tarjan's Algorithm을 사용하였습니다. 이는 문제 설명에서 Kosaraju's Algorithm을 사용하도록 제안된 것과 다릅니다.
+- 코드는 SCC를 올바르게 찾고 정렬하지만, Tarjan's Algorithm의 구현이 완벽하지 않습니다.
+
+### 코드 스타일
+- 변수명은 의미를 잘 전달하고 있습니다. 예를 들어, `graph`, `d`, `stack`, `scc_lst`는 각각 그래프, 방문 여부, 스택, SCC 목록을 나타냅니다.
+- 띄어쓰기와 괄호 처리는 적절하게 되어 있습니다.
+- 주석 처리는 부족합니다. 예를 들어, `dfs` 함수의 역할과 `parent` 변수의 의미를 설명하는 주석이 필요합니다.
+
+### 불필요 코드
+- `sys.setrecursionlimit(10**6)`는 불필요한 코드입니다. 이 코드는 재귀 깊이를 설정하지만, 문제 해결에 직접적인 영향을 미치지 않습니다.
+- `nonlocal id`는 불필요한 코드입니다. `id` 변수는 함수 내에서만 사용되므로, `nonlocal` 키워드는 필요하지 않습니다.
+
+### 코드 효율성
+- 코드는 Tarjan's Algorithm을 사용하여 SCC를 찾는 데 성공하지만, Kosaraju's Algorithm을 사용하는 것이 더 효율적일 수 있습니다. Kosaraju's Algorithm은 두 번의 DFS를 사용하여 SCC를 찾는 반면, Tarjan's Algorithm은 한 번의 DFS를 사용하지만 추가적인 bookkeeping이 필요합니다.
+- 코드는 SCC를 찾는 데 성공하지만, Kosaraju's Algorithm을 사용하는 것이 더 효율적일 수 있습니다.
+
+### 고려하지 못한 케이스
+- 코드는 SCC를 찾는 데 성공하지만, 특정한 케이스를 고려하지 못한 부분이 있습니다. 예를 들어, 그래프가 비어 있는 경우를 고려하지 않았습니다.
+- 코드는 SCC를 찾는 데 성공하지만, 그래프가 비어 있는 경우를 고려하지 않았습니다.
+
+### 종합 피드백
+- 제출된 솔루션은 Strongly Connected Components (SCC) 문제를 해결하기 위해 Tarjan's Algorithm을 기반으로 구현하였습니다. 그러나, Tarjan's Algorithm의 구현이 완벽하지 않습니다.
+- 코드는 SCC를 찾는 데 성공하지만, Kosaraju's Algorithm을 사용하는 것이 더 효율적일 수 있습니다.
+- 코드는 SCC를 올바르게 찾고 정렬하지만, Tarjan's Algorithm의 구현이 완벽하지 않습니다.
+- 코드는 변수명과 띄어쓰기, 괄호 처리가 적절하게 되어 있지만, 주석 처리가 부족합니다.
+- 코드는 불필요한 코드가 포함되어 있습니다.
+- 코드는 특정한 케이스를 고려하지 못한 부분이 있습니다. 예를 들어, 그래프가 비어 있는 경우를 고려하지 않았습니다.

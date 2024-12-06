@@ -1,7 +1,0 @@
-Not coverd = {
-    (calculate(s),28),
-    (calculate(s),29),
-    (calculate(s),30),
-    (calculate(s),31),
-    (calculate(s),36),
-}

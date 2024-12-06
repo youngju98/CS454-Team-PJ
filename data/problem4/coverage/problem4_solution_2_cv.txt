@@ -1,0 +1,18 @@
+Coverage Report
+==================================================
+Coverage Percentage: 60.00%
+
+Uncovered Code Lines:
+--------------------------------------------------
+Line 7: switch = False
+Line 14: count[0] += 1  # Increment the solution count
+Line 17: col[i + 1] = j
+Line 18: queens(n, i + 1, col, count)
+--------------------------------------------------
+
+Not coverd = {
+    (calculate(s),7),  # switch = False
+    (calculate(s),14),  # count[0] += 1  # Increment the solution count
+    (calculate(s),17),  # col[i + 1] = j
+    (calculate(s),18),  # queens(n, i + 1, col, count)
+}

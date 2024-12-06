@@ -1,0 +1,62 @@
+17472. Bridge Building 2
+You are given a 2D grid where each cell represents either land (denoted as 1) or sea (denoted as 0). 
+The goal is to connect all the islands (clusters of 1s) using straight bridges with the minimum total cost.
+
+Bridges can only be built vertically or horizontally, and the length of a bridge must be at least 2. 
+If it is impossible to connect all the islands, return -1.
+
+Input
+- The first line contains two integers, N and M, representing the dimensions of the grid (1 ≤ N, M ≤ 10).
+- The next N lines contain M integers (either 0 or 1), describing the grid.
+
+Output
+- Print the minimum total length of the bridges required to connect all the islands.
+- If it is impossible to connect all the islands, print -1.
+
+Example 1:
+
+Input:
+
+7 8
+0 0 0 0 0 0 0 0
+0 0 0 1 1 0 0 0
+0 0 0 1 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 1 1 0 0 0 0
+0 0 1 1 0 0 0 0
+0 0 0 0 0 0 0 0
+Output:
+
+9
+
+Example 2:
+
+Input:
+
+4 4
+1 1 0 0
+1 1 0 0
+0 0 1 1
+0 0 1 1
+Output:
+
+2
+Example 3:
+
+Input:
+
+4 4
+1 0 0 1
+0 0 0 0
+0 0 0 0
+1 0 0 1
+Output:
+
+-1
+
+Constraints
+The size of the grid is N x M, where 1 ≤ N, M ≤ 10.
+Each cell in the grid contains either 0 or 1.
+The length of a bridge must be at least 2.
+Bridges can only be built vertically or horizontally, and they cannot cross over other islands.
+If it is impossible to connect all islands, the output should be -1.

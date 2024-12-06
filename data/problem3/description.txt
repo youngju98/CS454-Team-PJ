@@ -1,0 +1,32 @@
+Minimum Spanning Tree (MST)
+
+Write a program to find the Minimum Spanning Tree (MST) of a given graph.
+
+A Minimum Spanning Tree (MST) is a subgraph that:
+Connects all the vertices of the graph,
+Has the minimum possible sum of edge weights, and
+Forms a tree (contains no cycles).
+
+Input Format:
+The first line contains two integers 
+V (1 ≤ V ≤ 10,000) and E (1 ≤ E ≤ 100,000), representing the number of vertices and edges, respectively.
+The next E lines each contain three integers A, B, and C, representing an edge between vertex A and vertex B with weight C.
+C can be negative.
+The absolute value of C will not exceed 1,000,000.
+
+Output Format:
+Print a single integer: the total weight of the Minimum Spanning Tree.
+
+Constraints:
+The vertices of the graph are numbered from 1 to V.
+There is a path between any two vertices.
+The total weight of the MST will always be within the range [−2147483648 - 2147483647].
+
+Example 1:
+
+Input: s = """3 3
+1 2 1
+2 3 2
+1 3 3
+"""
+Output: 3
