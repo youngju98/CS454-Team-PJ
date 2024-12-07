@@ -1,17 +1,17 @@
-### 1. 코드 구현 정확도
-제출된 솔루션은 Strongly Connected Components (SCC) 문제를 해결하기 위해 Kosaraju's Algorithm을 사용하지 않고 Tarjan's Algorithm의 일부 요소를 사용한 것으로 보입니다. 그러나 구현에는 몇 가지 오류가 있습니다. 예를 들어, `visited` 세트는 제대로 사용되지 않으며, `dfs` 함수 내에서 `for node in visited:` 루프는 불필요합니다. 또한, SCC를 찾는 로직이 Tarjan's Algorithm과 완전히 일치하지 않습니다. SCC를 올바르게 찾기 위해서는 Kosaraju's Algorithm이나 Tarjan's Algorithm을 정확하게 구현해야 합니다.
+**Code Implementation Accuracy:**
+The submitted solution attempts to find Strongly Connected Components (SCCs) in a directed graph but does not accurately implement the Tarjan's algorithm or Kosaraju's algorithm, which are standard methods for this problem. The solution incorrectly handles the identification of SCCs by not properly managing the stack and the low-link values. It also does not correctly implement the second DFS traversal required by Kosaraju's algorithm or the single DFS with proper low-link value updates in Tarjan's algorithm. The code does not handle all exceptions and errors, such as potential stack overflows for very large graphs, despite setting a higher recursion limit.
 
-### 2. 코드 스타일
-변수명은 대부분 의미가 명확하지만, `d`와 `id`는 더 설명적인 이름을 사용하는 것이 좋습니다. 예를 들어, `d`는 `discovery_time`으로, `id`는 `current_id`로 이름을 변경할 수 있습니다. 또한, 함수 내에서 전역 변수를 사용하는 대신 함수의 인자로 전달하는 것이 좋습니다. 주석 처리는 거의 없으며, 코드의 이해를 돕기 위해 더 많은 주석이 필요합니다.
+**Code Style:**
+The code style is mostly consistent with standard Python conventions. However, variable naming could be improved for clarity (e.g., `d` could be `discovery_time`, `scc_lst` could be `scc_list`). The use of `nonlocal` for the `id` variable is acceptable but could be avoided with a different design. Comments are lacking, which makes understanding the code's intent more difficult.
 
-### 3. 불필요 코드
-`for node in visited:` 루프는 불필요하며 제거해야 합니다. 또한, `visited` 세트는 현재 구현에서 제대로 사용되지 않으므로 제거하거나 올바르게 사용해야 합니다.
+**Unnecessary Code:**
+The loop `for node in visited:` inside the `dfs` function does not serve any purpose and can be removed. The `parent` variable's initial assignment to `d[cur]` is unnecessary since it will be updated in the following loop. The `visited` set is not necessary because the `d` list already tracks visited nodes (those with `d[i] != -1`).
 
-### 4. 코드 효율성
-현재 구현은 Tarjan's Algorithm의 일부 요소를 사용했지만, Kosaraju's Algorithm을 사용하는 것이 더 효율적일 수 있습니다. Kosaraju's Algorithm은 두 번의 DFS를 수행하여 SCC를 찾기 때문에 시간 복잡도가 O(V + E)로 효율적입니다. 또한, SCC를 찾은 후에 정렬하는 대신, DFS를 수행하면서 SCC를 바로 정렬하는 방법을 고려할 수 있습니다.
+**Code Efficiency:**
+The code is not efficient for finding SCCs. It incorrectly implements the algorithm, leading to incorrect results and potential inefficiencies. A correct implementation of Tarjan's or Kosaraju's algorithm would improve efficiency. The current implementation has a time complexity that could be higher than necessary due to the incorrect handling of the stack and low-link values.
 
-### 5. 고려하지 못한 케이스
-제출된 솔루션은 SCC를 찾는 데에 일부 성공하지만, 특정한 케이스를 고려하지 못한 부분이 있습니다. 예를 들어, 그래프가 비연결 그래프인 경우를 제대로 처리하지 못합니다. 또한, SCC를 찾은 후에 정렬하는 과정에서 오류가 발생할 수 있습니다.
+**Unconsidered Cases:**
+The code does not consider the case where the input graph might be disconnected. It assumes that all vertices are reachable from the starting vertex, which might not always be true. Additionally, it does not handle the case where there are no SCCs in the graph, which, although not possible given the constraints, should be considered for robustness.
 
-### 6. 종합 피드백
-전체적으로, 제출된 솔루션은 SCC 문제를 해결하기 위해 일부 노력을 기울였지만, 정확한 구현과 효율적인 알고리즘 사용이 필요합니다. Kosaraju's Algorithm이나 Tarjan's Algorithm을 정확하게 구현하고, 불필요한 코드를 제거하며, 코드 스타일을 개선해야 합니다. 또한, 특정한 케이스를 고려하지 못한 부분을 수정하고, 코드의 효율성을 높이기 위해 추가적인 최적화를 고려해야 합니다.
+**Overall Feedback:**
+The submitted solution does not accurately solve the problem of finding Strongly Connected Components in a directed graph. It incorrectly implements the algorithm, leading to potential errors and inefficiencies. Improvements are needed in algorithm implementation, code clarity, and handling of edge cases. A correct implementation of Tarjan's or Kosaraju's algorithm, along with proper error handling and code optimization, is necessary to solve the problem accurately and efficiently.

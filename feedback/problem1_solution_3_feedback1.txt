@@ -1,26 +1,17 @@
-1. **코드 구현 정확도**:
-   - 제출된 솔루션은 Tarjan's 알고리즘을 사용하여 Strongly Connected Components (SCCs)를 찾는 데 성공합니다. 그러나 SCCs를 정렬하지 않아 문제의 요구 사항을 완전히 충족하지 못합니다. SCCs는 가장 작은 정점 번호에 따라 오름차순으로 정렬되어야 합니다[1][4].
-   - 코드는 SCCs를 추출하고 출력 형식은 문제의 요구 사항과 일치하지만, SCCs 내의 정점은 오름차순으로 정렬되지 않습니다.
+**Code Implementation Accuracy:**
+The submitted solution uses Tarjan's algorithm to find Strongly Connected Components (SCCs) in a directed graph, which is a correct approach. However, the implementation has a critical flaw: it does not correctly handle the sorting of vertices within each SCC and the ordering of SCCs based on the smallest vertex number. The current implementation does not sort the vertices in each SCC in ascending order, nor does it order the SCCs by the smallest vertex number in each SCC. This does not meet the problem's output requirements.
 
-2. **코드 스타일**:
-   - 변수명은 적절하게 설정되어 이해하기 쉽습니다. 예를 들어, `graph`, `d`, `stack`, `on_stack`, `scc_lst`는 각각 그래프, 발견 시간, 스택, 스택에 있는지 여부, SCC 목록을 나타냅니다.
-   - 띄어쓰기와 괄호 처리는 일관성 있게 적용되어 가독성이 좋습니다.
-   - 주석은 코드의 이해를 돕기 위해 적절하게 사용되어 있습니다.
+**Code Style:**
+The code style is generally good, with clear variable naming and proper use of spacing and brackets. However, the function `calculate` is not within a class as specified in the skeleton code, and the use of `nonlocal` for the `id` variable could be avoided by encapsulating it within a class or using a different design pattern. Comments explaining the purpose of each section of the code would improve readability.
 
-3. **불필요 코드**:
-   - 제출된 솔루션에는 불필요한 코드가 보이지 않습니다. 모든 함수와 변수는 SCC를 찾는 데 필요한 역할을 수행합니다.
-   - 그러나, SCCs를 정렬하는 코드가 누락되어 문제의 요구 사항을 완전히 충족하지 못합니다.
+**Unnecessary Code:**
+There is no unnecessary code in the submitted solution. All parts of the code contribute to the functionality of finding and printing SCCs.
 
-4. **코드 효율성**:
-   - Tarjan's 알고리즘은 SCC를 찾는 데 효율적인 알고리즘으로, 시간 복잡도가 O(V + E)입니다[1][4].
-   - 코드는 재귀를 사용하여 DFS를 수행하며, sys.setrecursionlimit(10**6)로 재귀 깊이를 설정하여 스택 오버플로우를 방지합니다.
-   - 그러나, SCCs를 정렬하는 추가적인 코드가 필요합니다.
+**Code Efficiency:**
+The solution uses Tarjan's algorithm, which is efficient for finding SCCs in a directed graph. However, the implementation could be optimized by sorting the SCCs and their vertices as required by the problem statement without adding significant computational overhead. Using built-in sorting functions would be more efficient than implementing custom sorting algorithms.
 
-5. **고려하지 못한 케이스**:
-   - 코드는 SCC를 찾는 데 성공하지만, SCCs를 정렬하지 않아 문제의 요구 사항을 완전히 충족하지 못합니다.
-   - SCCs 내의 정점은 오름차순으로 정렬되어야 하며, SCCs는 가장 작은 정점 번호에 따라 오름차순으로 정렬되어야 합니다.
+**Unconsidered Cases:**
+The solution does not consider the case where the input graph might be empty (i.e., V=0 or E=0), which could lead to errors or unexpected behavior. Additionally, it does not handle the case where the input might be malformed (e.g., non-integer values for V, E, A, or B). Error handling for such cases should be added to make the solution more robust.
 
-6. **종합 피드백**:
-   - 제출된 솔루션은 Tarjan's 알고리즘을 사용하여 SCC를 찾는 데 성공합니다. 그러나, SCCs를 정렬하지 않아 문제의 요구 사항을 완전히 충족하지 못합니다.
-   - 코드 스타일과 효율성은 좋지만, SCCs를 정렬하는 추가적인 코드가 필요합니다.
-   - SCCs를 정렬하는 코드를 추가하여 문제의 요구 사항을 완전히 충족해야 합니다.
+**Overall Feedback:**
+The submitted solution is a good start but needs improvements in handling the sorting and ordering requirements specified in the problem statement. Additionally, it should be encapsulated within a class as per the skeleton code, and error handling for edge cases should be added. With these adjustments, the solution will be more accurate, robust, and in line with the problem's requirements.

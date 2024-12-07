@@ -1,17 +1,17 @@
-### 1. 코드 구현 정확도
-제출된 솔루션은 Kruskal's Algorithm을 사용하여 Minimum Spanning Tree (MST)를 구현하고 있습니다. 그러나, 현재 구현에는 중요한 오류가 있습니다. `union_parent(a, b)` 함수를 호출하기 전에 `same_parent(a, b)`를 체크하지 않습니다. 이는, 이미 같은 집합에 속한 두 노드를 다시 합치는 경우를 방지하지 않아, MST의 정의를 위반할 수 있습니다. 따라서, `same_parent(a, b)`를 체크하여 이미 같은 집합에 속한 경우에는 합치지 않도록 수정해야 합니다.
+**Code Implementation Accuracy:**
+The submitted solution does not accurately implement the Minimum Spanning Tree (MST) algorithm. It incorrectly applies the union operation before checking if the two vertices belong to the same set, which can lead to cycles in the MST. The correct approach should involve checking if the two vertices have the same parent before performing the union operation. This ensures that the MST remains acyclic.
 
-### 2. 코드 스타일
-변수명과 함수명은 적절하게 설정되어 있습니다. 그러나, 주석이 부족하여 코드의 이해를 어렵게 만듭니다. 예를 들어, `get_parent(x)` 함수와 `union_parent(a, b)` 함수의 역할을 설명하는 주석이 필요합니다. 또한, 함수명과 변수명이 더 명확하게 설정될 수 있습니다. 예를 들어, `calculate(s)` 함수는 `find_mst(s)`로 이름을 변경하는 것이 더 적절합니다.
+**Code Style:**
+The code style is generally good, with clear variable naming and proper indentation. However, the function `calculate` does not belong to a class as suggested by the skeleton code. It should be encapsulated within a class for better organization and adherence to object-oriented principles.
 
-### 3. 불필요 코드
-현재 구현에는 불필요한 코드가 없습니다. 그러나, `same_parent(a, b)` 함수를 사용하지 않기 때문에, 이 함수는 불필요한 코드로 간주될 수 있습니다. 하지만, 앞서 설명한대로, 이 함수는 실제로 필요합니다.
+**Unnecessary Code:**
+There is no unnecessary code in the submitted solution. All lines of code are intended to contribute to the calculation of the MST. However, the lines that are not covered by the test cases (lines 9, 10, and 28) indicate potential issues with the test data or the logic of the program.
 
-### 4. 코드 효율성
-Kruskal's Algorithm은 MST를 찾는 데에 효율적인 알고리즘입니다. 그러나, 현재 구현에서는 `union_parent(a, b)` 함수를 호출하기 전에 `same_parent(a, b)`를 체크하지 않아, 불필요한 연산이 발생할 수 있습니다. 이를 수정하여 효율성을 개선할 수 있습니다.
+**Code Efficiency:**
+The solution uses Kruskal's algorithm, which is efficient for finding the MST of a graph. However, the implementation can be optimized by adding a check to ensure that the union operation does not create a cycle. This can be achieved by verifying if the two vertices have the same parent before performing the union.
 
-### 5. 고려하지 못한 케이스
-현재 구현에서는, 이미 같은 집합에 속한 두 노드를 다시 합치는 경우를 고려하지 않습니다. 이는, MST의 정의를 위반할 수 있습니다. 따라서, `same_parent(a, b)`를 체크하여 이미 같은 집합에 속한 경우에는 합치지 않도록 수정해야 합니다.
+**Unconsidered Cases:**
+The solution does not consider the case where adding an edge to the MST would create a cycle. This is a critical oversight because the MST must be acyclic. The solution should be modified to check for this condition before adding an edge to the MST.
 
-### 6. 종합 피드백
-제출된 솔루션은 Kruskal's Algorithm을 사용하여 MST를 구현하고 있습니다. 그러나, 현재 구현에는 중요한 오류가 있습니다. `union_parent(a, b)` 함수를 호출하기 전에 `same_parent(a, b)`를 체크하지 않아, MST의 정의를 위반할 수 있습니다. 이를 수정하여 효율성을 개선하고, MST의 정의를 만족할 수 있도록 해야 합니다. 또한, 주석을 추가하여 코드의 이해를 쉽게 만드는 것이 필요합니다.
+**Overall Feedback:**
+The submitted solution has several issues that need to be addressed. It incorrectly implements the union operation, lacks proper encapsulation, and fails to consider the case where adding an edge would create a cycle. To improve the solution, it is essential to correct the union operation logic, encapsulate the function within a class, and add checks to prevent cycles in the MST. Additionally, ensuring that all lines of code are covered by test cases will help in identifying and fixing potential bugs.
