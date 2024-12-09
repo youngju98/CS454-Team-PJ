@@ -1,206 +1,53 @@
 ```
 {
-  "Unnecessary code": [
-    {
-      "line": [
-        3
-      ],
-      "reason_number": 2,
-      "reason": "The line setting the recursion limit is unnecessary unless dealing with very deep recursions, which is not indicated in the problem statement.",
-      "improved_code": [
-        ""
-      ]
-    }
-  ],
-  "Bad coding style": [
-    {
-      "line": [
-        1
-      ],
-      "reason_number": 1,
-      "reason": "The function name \"calculate\" does not match its role.",
-      "improved_code": [
-        "def Graph_to_SCC(input: str)->str:"
-      ]
-    },
-    {
-      "line": [
-        1,
-        11
-      ],
-      "reason_number": 1,
-      "reason": "The variable name \"s\" is not clear.",
-      "improved_code": [
-        "def Graph_to_SCC(input: str)->str:",
-        "    input_lines = input.strip().split(\"\n\")"
-      ]
-    },
-    {
-      "line": [
-        10,
-        11,
-        19
-      ],
-      "reason_number": 1,
-      "reason": "The variable name \"lines\" is not clear.",
-      "improved_code": [
-        "    input_lines=s.strip().split(\"\n\")",
-        "    V, E = map(int, input_lines[0].split())",
-        "    for input_line in input_lines[1:]:"
-      ]
-    },
-    {
-      "line": [
-        19,
-        20
-      ],
-      "reason_number": 1,
-      "reason": "The variable name \"line\" is not clear.",
-      "improved_code": [
-        "    for input_line in input_lines[1:]:",
-        "       origin, destination = map(int, input_line.split())"
-      ]
-    },
-    {
-      "line": [
-        20,
-        21
-      ],
-      "reason_number": 1,
-      "reason": "The variable name \"A\" and \"B\" are not clear.",
-      "improved_code": [
-        "       origin, destination = map(int, input_line.split())",
-        "       G[origin].append(destination)"
-      ]
-    },
-    {
-      "line": [
-        25,
-        28,
-        29,
-        31,
-        32,
-        37,
-        43
-      ],
-      "reason_number": 1,
-      "reason": "The variable name \"n\" is not clear.",
-      "improved_code": [
-        "    def dfs(origin):",
-        "        visited[origin] = cnt",
-        "        stack.append(origin)",
-        "        p = visited[origin]",
-        "        for destination in G[origin]:",
-        "        if p == visited[origin]:",
-        "                if t == origin:"
-      ]
-    },
-    {
-      "line": [
-        32,
-        33,
-        34,
-        35,
-        36
-      ],
-      "reason_number": 1,
-      "reason": "The variable name \"x\" is not clear.",
-      "improved_code": [
-        "        for destination in G[origin]:",
-        "            if visited[destination] == NOTVISIT:",
-        "                p = min(p, dfs(destination))",
-        "            elif visited[destination] != VISIT:",
-        "                p = min(p, visited[destination])"
-      ]
-    },
-    {
-      "line": [
-        31,
-        34,
-        36,
-        37,
-        48
-      ],
-      "reason_number": 1,
-      "reason": "The variable name \"p\" is not clear.",
-      "improved_code": [
-        "        parent = visited[origin]",
-        "                parent = min(parent, dfs(destination))",
-        "                parent = min(parent, visited[destination])",
-        "        if parent == visited[origin]:",
-        "        return parent"
-      ]
-    },
-    {
-      "line": [
-        38,
-        41,
-        45,
-        46
-      ],
-      "reason_number": 1,
-      "reason": "The variable name \"temp\" is not clear.",
-      "improved_code": [
-        "            SCC = []",
-        "                SCC.append(SCC_node)",
-        "            SCC.sort()",
-        "            answer.append(SCC)"
-      ]
-    },
-    {
-      "line": [
-        40,
-        41,
-        42,
-        43
-      ],
-      "reason_number": 1,
-      "reason": "The variable name \"temp\" is not clear.",
-      "improved_code": [
-        "                SCC_node = stack.pop()",
-        "                SCC.append(SCC_node)",
-        "                visited[SCC_node] = VISIT",
-        "                if SCC_node == origin:"
-      ]
-    },
-    {
-      "line": [
-        51,
-        52,
-        53
-      ],
-      "reason_number": 1,
-      "reason": "The variable name \"i\" is not clear.",
-      "improved_code": [
-        "    for node in range(1, V + 1):",
-        "        if visited[node] == NOTVISIT:",
-        "            dfs(node)"
-      ]
-    }
-  ],
-  "Logical fault": [
-    {
-      "line": [
-        44
-      ],
-      "reason_number": 1,
-      "reason": "The break statement is not necessary and could cause the loop to terminate prematurely.",
-      "improved_code": [
-        ""
-      ]
-    },
-    {
-      "line": [
-        51
-      ],
-      "reason_number": 1,
-      "reason": "The loop should iterate over the range of vertices (0 to V-1) instead of (1 to V+1) to match the 0-based indexing used in the graph.",
-      "improved_code": [
-        "    for node in range(V):",
-        "        if visited[node] == NOTVISIT:",
-        "            dfs(node)"
-      ]
-    }
-  ]
+  "3": {
+    "reason": "The line setting the recursion limit is not covered by tests and may not be necessary.",
+    "reason_num": [
+      2
+    ],
+    "improved_code": ""
+  },
+  "11": {
+    "reason": "Variable names 'a' and 'b' are not clear and should be more descriptive.",
+    "reason_num": [
+      3
+    ],
+    "improved_code": "        origin, destination = map(int, line.split())"
+  },
+  "12": {
+    "reason": "Variable names 'a' and 'b' are not clear and should be more descriptive.",
+    "reason_num": [
+      3
+    ],
+    "improved_code": "        graph[origin - 1].append(destination - 1)  # Convert to 0-based index"
+  },
+  "22": {
+    "reason": "The use of 'nonlocal' for variable 'id' is not covered by tests and may indicate a design issue.",
+    "reason_num": [
+      2, 4
+    ],
+    "improved_code": ""
+  },
+  "31": {
+    "reason": "The recursive call to 'dfs(next)' is not covered by tests and may indicate a logical fault.",
+    "reason_num": [
+      5
+    ],
+    "improved_code": ""
+  },
+  "44": {
+    "reason": "The 'break' statement is not covered by tests and may indicate a logical fault.",
+    "reason_num": [
+      5
+    ],
+    "improved_code": ""
+  },
+  "51": {
+    "reason": "The call to 'dfs(i)' is not covered by tests and may indicate a logical fault.",
+    "reason_num": [
+      5
+    ],
+    "improved_code": ""
+  }
 }
 ```

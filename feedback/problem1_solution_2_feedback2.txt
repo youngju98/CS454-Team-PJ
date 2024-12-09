@@ -1,209 +1,88 @@
 ```
 {
-  "Unnecessary code": [
-    {
-      "line": [
-        9,
-        10
-      ],
-      "reason_number": 2,
-      "reason": "The lines are not covered by the test cases, but they are necessary for the functionality of the code. However, the variable 'line' can be removed and directly use the loop variable.",
-      "improved_code": [
-        "for input_line in input_lines[1:]:",
-        "    origin, destination = map(int, input_line.split())",
-        "    graph[origin - 1].append(destination - 1)"
-      ]
-    },
-    {
-      "line": [
-        21
-      ],
-      "reason_number": 2,
-      "reason": "The 'nonlocal' keyword is not necessary here because the variable 'id' is not being reassigned, but it's good practice to include it for clarity.",
-      "improved_code": [
-        "nonlocal id  # This line is not unnecessary but is often considered good practice"
-      ]
-    }
-  ],
-  "Bad coding style": [
-    {
-      "line": [
-        1
-      ],
-      "reason_number": 1,
-      "reason": "The function name 'calculate' does not match its role.",
-      "improved_code": [
-        "def graph_to_scc(input: str) -> str:"
-      ]
-    },
-    {
-      "line": [
-        1,
-        11
-      ],
-      "reason_number": 1,
-      "reason": "The variable name 's' is not clear.",
-      "improved_code": [
-        "def graph_to_scc(input: str) -> str:",
-        "    input_lines = input.strip().split('\\n')"
-      ]
-    },
-    {
-      "line": [
-        10,
-        11,
-        19
-      ],
-      "reason_number": 1,
-      "reason": "The variable name 'lines' is not clear.",
-      "improved_code": [
-        "    input_lines = input.strip().split('\\n')",
-        "    V, E = map(int, input_lines[0].split())",
-        "    for input_line in input_lines[1:]:"
-      ]
-    },
-    {
-      "line": [
-        19,
-        20
-      ],
-      "reason_number": 1,
-      "reason": "The variable name 'line' is not clear.",
-      "improved_code": [
-        "    for input_line in input_lines[1:]:",
-        "        origin, destination = map(int, input_line.split())"
-      ]
-    },
-    {
-      "line": [
-        20,
-        21
-      ],
-      "reason_number": 1,
-      "reason": "The variable name 'A' and 'B' are not clear.",
-      "improved_code": [
-        "        origin, destination = map(int, input_line.split())",
-        "        graph[origin - 1].append(destination - 1)"
-      ]
-    },
-    {
-      "line": [
-        25,
-        28,
-        29,
-        31,
-        32,
-        37,
-        43
-      ],
-      "reason_number": 1,
-      "reason": "The variable name 'n' is not clear.",
-      "improved_code": [
-        "    def dfs(origin):",
-        "        visited[origin] = cnt",
-        "        stack.append(origin)",
-        "        parent = visited[origin]",
-        "        for destination in graph[origin]:",
-        "            if parent == visited[origin]:",
-        "                if t == origin:"
-      ]
-    },
-    {
-      "line": [
-        32,
-        33,
-        34,
-        35,
-        36
-      ],
-      "reason_number": 1,
-      "reason": "The variable name 'x' is not clear.",
-      "improved_code": [
-        "        for destination in graph[origin]:",
-        "            if visited[destination] == NOTVISIT:",
-        "                parent = min(parent, dfs(destination))",
-        "            elif visited[destination] != VISIT:",
-        "                parent = min(parent, visited[destination])"
-      ]
-    },
-    {
-      "line": [
-        31,
-        34,
-        36,
-        37,
-        48
-      ],
-      "reason_number": 1,
-      "reason": "The variable name 'p' is not clear.",
-      "improved_code": [
-        "        parent = visited[origin]",
-        "                parent = min(parent, dfs(destination))",
-        "                parent = min(parent, visited[destination])",
-        "        if parent == visited[origin]:",
-        "        return parent"
-      ]
-    },
-    {
-      "line": [
-        38,
-        41,
-        45,
-        46
-      ],
-      "reason_number": 1,
-      "reason": "The variable name 'temp' is not clear.",
-      "improved_code": [
-        "            scc = []",
-        "                scc.append(scc_node)",
-        "            scc.sort()",
-        "            answer.append(scc)"
-      ]
-    },
-    {
-      "line": [
-        40,
-        41,
-        42,
-        43
-      ],
-      "reason_number": 1,
-      "reason": "The variable name 'temp' is not clear.",
-      "improved_code": [
-        "                scc_node = stack.pop()",
-        "                scc.append(scc_node)",
-        "                visited[scc_node] = VISIT",
-        "                if scc_node == origin:"
-      ]
-    },
-    {
-      "line": [
-        51,
-        52,
-        53
-      ],
-      "reason_number": 1,
-      "reason": "The variable name 'i' is not clear.",
-      "improved_code": [
-        "    for node in range(V):",
-        "        if visited[node] == NOTVISIT:",
-        "            dfs(node)"
-      ]
-    }
-  ],
-  "Logical fault": [
-    {
-      "line": [
-        50
-      ],
-      "reason_number": 1,
-      "reason": "The loop should iterate over the range of 'V' (number of vertices) instead of hardcoded values.",
-      "improved_code": [
-        "    for node in range(V):",
-        "        if visited[node] == NOTVISIT:",
-        "            dfs(node)"
-      ]
-    }
-  ]
+  "1": {
+    "reason": "The function name \"calculate\" does not match its role. The variable name \"s\" is not clear.",
+    "reason_num": [
+      3
+    ],
+    "improved_code": "def graph_to_SCC(input: str) -> str:"
+  },
+  "9": {
+    "reason": "This line is not covered by the test cases, indicating a potential issue with the input parsing logic.",
+    "reason_num": [
+      6
+    ],
+    "improved_code": "Ensure that the input string is correctly formatted and that the line splitting logic is robust."
+  },
+  "10": {
+    "reason": "This line is not covered by the test cases, indicating a potential issue with the graph construction logic.",
+    "reason_num": [
+      6
+    ],
+    "improved_code": "Verify that the graph is correctly constructed from the input string and that the node indexing is correct."
+  },
+  "10": {
+    "reason": "The variable name \"graph\" is clear but consider using a more descriptive name for the variable \"a\" and \"b\".",
+    "reason_num": [
+      3
+    ],
+    "improved_code": "        origin, destination = map(int, line.split())\n        G[origin - 1].append(destination - 1)"
+  },
+  "21": {
+    "reason": "The use of \"nonlocal\" keyword can be avoided by encapsulating the id variable within a class or using a different approach.",
+    "reason_num": [
+      4
+    ],
+    "improved_code": "Consider using a class to encapsulate the id variable or using a different approach to avoid the use of \"nonlocal\" keyword."
+  },
+  "21": {
+    "reason": "This line is not covered by the test cases, indicating a potential issue with the id increment logic.",
+    "reason_num": [
+      6
+    ],
+    "improved_code": "Ensure that the id increment logic is correct and that it is properly tested."
+  },
+  "30": {
+    "reason": "The variable name \"parent\" and \"next\" are not clear.",
+    "reason_num": [
+      3
+    ],
+    "improved_code": "        parent_node = min(parent_node, dfs(neighbor))"
+  },
+  "30": {
+    "reason": "This line is not covered by the test cases, indicating a potential issue with the parent node update logic.",
+    "reason_num": [
+      6
+    ],
+    "improved_code": "Verify that the parent node update logic is correct and that it is properly tested."
+  },
+  "42": {
+    "reason": "The variable name \"node\" and \"cur\" are not clear.",
+    "reason_num": [
+      3
+    ],
+    "improved_code": "                if SCC_node == current_node:"
+  },
+  "42": {
+    "reason": "This line is not covered by the test cases, indicating a potential issue with the SCC construction logic.",
+    "reason_num": [
+      6
+    ],
+    "improved_code": "Ensure that the SCC construction logic is correct and that it is properly tested."
+  },
+  "50": {
+    "reason": "The variable name \"i\" is not clear.",
+    "reason_num": [
+      3
+    ],
+    "improved_code": "    for node in range(V):"
+  },
+  "50": {
+    "reason": "This line is not covered by the test cases, indicating a potential issue with the DFS invocation logic.",
+    "reason_num": [
+      6
+    ],
+    "improved_code": "Verify that the DFS invocation logic is correct and that it is properly tested."
+  }
 }
 ```

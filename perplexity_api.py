@@ -37,48 +37,29 @@ def generate_feedback(description, skeleton, solution, feedback_example, coverag
 # """
 
     # System 메시지 준비
-    system_message = """You are a programming code reviewer. Your task is to analyze the given algorithm problem, skeleton code, feedback example, code coverage data (if available), and submitted solution to provide detailed feedback. The feedback should be structured into the following 3 categories:
-Unnecessary code
-Bad coding style
-Logical fault
+    system_message = """You are a programming code reviewer. Your task is to analyze the given algorithm problem, skeleton code, feedback example, code coverage data (if available), and submitted solution to provide detailed feedback. 
 For each category, you should provide feedback in the following format:
-{
-"Unnecessary code": [
-{
-"line": [line numbers],
-"reason_number": 1 or 2,
-"reason": "Detailed explanation",
-"improved_code": ["Suggested improvement"]
+"line number": {
+    "reason": "Detailed explanation",
+    "reason_num": [reason numbers],
+    "improved_code": "Suggested improvement"
 }
-],
-"Bad coding style": [
-{
-"line": [line numbers],
-"reason_number": 1 or 2,
-"reason": "Detailed explanation",
-"improved_code": ["Suggested improvement"]
-}
-],
-"Logical fault": [
-{
-"line": [line numbers],
-"reason_number": 1 or 2,
-"reason": "Detailed explanation",
-"improved_code": ["Suggested improvement"]
-}
-]
-}
-For each category, use the following guidelines:
+
+Using this format, feedback should be given on a specific line of the solution, explaining why and how it needs to be improved. Additionally, it should clearly list which of the six reasons fall under the three categories below.
+
+6 reasons : {
 Unnecessary code:
 reason_number 1: Duplicated code that is inefficient due to repetition.
 reason_number 2: Unused code, such as variables or functions that are declared but never used.
 Bad coding style:
-reason_number 1: Poor variable or function names, e.g., using 'a', 'b' instead of descriptive names.
-reason_number 2: Overuse of global variables, making the code's intention unclear.
+reason_number 3: Poor variable or function names, e.g., using 'a', 'b' instead of descriptive names.
+reason_number 4: Overuse of global variables, making the code's intention unclear.
 Logical fault:
-reason_number 1: Logical errors where the code doesn't execute as intended.
-reason_number 2: Failure to handle edge cases or extreme input values.
-Provide specific and accurate feedback for each category. Ensure that the 'line' field contains an array of relevant line numbers, the 'reason' field explains why the code needs improvement, and the 'improved_code' field suggests how to improve the code. Do not include any text other than the JSON feedback."""
+reason_number 5: Logical errors where the code doesn't execute as intended.
+reason_number 6: Failure to handle edge cases or extreme input values.
+}
+"line number" should contain only one number indicating which line is being referenced for feedback. "Detailed explanation" should provide a detailed reason for the need for improvement in a maximum of two sentences. The reason numbers should be presented as an array of numbers corresponding to the six reasons mentioned above. "Suggested improvement" should propose how to modify the code on that line based on the reasons provided.
+"""
 
     # User 메시지 준비
     user_message = f"""
@@ -97,7 +78,7 @@ submitted solution:
 {"code coverage data:" if coverage else ""}
 {coverage if coverage else ""}
 
-Based on the information above, generate feedback according to the 3 categories and format explained in the system message. Ensure your response is a valid JSON object."""
+Based on the information above, generate feedback according to the format explained in the system message. Your answer must only contain data in the format form. And the output should be in the form of a json file, with no other sentences."""
 
     # API 요청 데이터 준비
     data = {
