@@ -1,17 +1,52 @@
-**Code Implementation Accuracy:**
-The submitted solution generally follows the correct approach to solve the bridge building problem by identifying islands, calculating distances, and applying a union-find algorithm to connect them. However, the solution lacks comprehensive error handling and does not fully validate the input data, which could lead to unexpected behavior or errors for invalid inputs. Additionally, the condition for checking if all islands are connected (result == 0 or num != mark - 2) might not cover all edge cases, potentially leading to incorrect results.
-
-**Code Style:**
-The code adheres to standard Python conventions for naming variables and functions, and the indentation is consistent. However, the function `calculate(s: str) -> int` is misleadingly named and does not match its purpose. It should be renamed to something more descriptive, like `build_bridges` or `calculate_bridge_length`. Comments explaining the purpose of each section or function are lacking, which makes the code harder to understand for others.
-
-**Unnecessary Code:**
-The line `if result == 0 or num != mark - 2:` checks if all islands are connected but does not handle the case where there might be more than two islands that cannot be connected. This logic could be simplified or made more robust. Additionally, the `condition` function could be replaced with a more straightforward check within the loop to reduce function call overhead.
-
-**Code Efficiency:**
-The algorithm's efficiency is generally good, using a union-find approach to connect islands. However, the `getDist` function could be optimized by using a more efficient data structure or algorithm for finding the shortest paths between islands. The current implementation uses a simple BFS, which is adequate but might not be optimal for larger inputs.
-
-**Unconsidered Cases:**
-The solution does not explicitly handle cases where there are more than two islands that cannot be connected or where the input grid contains invalid values. It assumes that the input will always be valid and that connecting all islands is possible, which might not always be the case. Adding checks for these scenarios would make the solution more robust.
-
-**Overall Feedback:**
-The solution is mostly correct but lacks robustness and clarity. Improving variable and function naming, adding comments, and handling edge cases more comprehensively would enhance the code's quality. Additionally, optimizing the distance calculation and ensuring that all possible input scenarios are handled would make the solution more reliable and efficient.
+```json
+{
+  "Unnecessary code": [
+    {
+      "line": [24, 37, 49, 50, 55, 68, 78, 79, 80],
+      "reason_number": 2,
+      "reason": "These lines are not covered by the test cases, indicating that they might be unnecessary or not properly tested.",
+      "improved_code": ["Review the logic and ensure these lines are necessary and properly tested."]
+    }
+  ],
+  "Bad coding style": [
+    {
+      "line": [1],
+      "reason_number": 1,
+      "reason": "The function name 'calculate' does not match its role.",
+      "improved_code": ["def bridge_building(input: str) -> int:"]
+    },
+    {
+      "line": [1, 11],
+      "reason_number": 1,
+      "reason": "The variable name 's' is not clear.",
+      "improved_code": ["def bridge_building(input: str) -> int:", "    input_lines = input.strip().split('\\n')"]
+    },
+    {
+      "line": [10, 11, 19],
+      "reason_number": 1,
+      "reason": "The variable name 'lines' is not clear.",
+      "improved_code": ["    input_lines = input.strip().split('\\n')", "    n, m = map(int, input_lines[0].split())", "    for input_line in input_lines[1:]:"]
+    },
+    {
+      "line": [19, 20],
+      "reason_number": 1,
+      "reason": "The variable name 'line' is not clear.",
+      "improved_code": ["    for input_line in input_lines[1:]:", "       graph.append(list(map(int, input_line.split())))"]
+    },
+    {
+      "line": [20, 21],
+      "reason_number": 1,
+      "reason": "The variable name 'A' and 'B' are not clear.",
+      "improved_code": ["       graph.append(list(map(int, input_line.split())))", "       # Use descriptive names for variables"]
+    }
+  ],
+  "Logical fault": [
+    {
+      "line": [78, 79, 80],
+      "reason_number": 1,
+      "reason": "The logic for calculating the minimum total length of bridges is incorrect. It does not properly handle the case when it is impossible to connect all islands.",
+      "improved_code": ["Review the logic for calculating the minimum total length of bridges and ensure it handles all edge cases."]
+    }
+  ]
+}
+```

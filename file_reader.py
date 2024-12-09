@@ -9,6 +9,7 @@ def read_input_files(base_dir):
             problems[problem_folder] = {
                 'description': None,
                 'skeleton': None,
+                'feedback_example' : None,
                 'solutions': [],
                 'coverage': []
             }
@@ -16,6 +17,10 @@ def read_input_files(base_dir):
             # 설명 파일 읽기
             with open(os.path.join(problem_path, 'description.txt'), 'r') as f:
                 problems[problem_folder]['description'] = f.read()
+                
+            # 피드백 예시 파일 읽기
+            with open(os.path.join(problem_path, 'feedback_example.json'), 'r') as f:
+                problems[problem_folder]['feedback_example'] = f.read()
             
             # 스켈레톤 코드 읽기
             with open(os.path.join(problem_path, 'skeleton.py'), 'r') as f:

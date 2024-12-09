@@ -1,7 +1,7 @@
 import requests
 from config import API_KEY
 
-def generate_feedback(description, skeleton, solution, coverage=None):
+def generate_feedback(description, skeleton, solution, feedback_example, coverage=None):
     # Perplexity API 엔드포인트 및 API 키 설정
     API_ENDPOINT = "https://api.perplexity.ai/chat/completions"
 
@@ -23,18 +23,62 @@ def generate_feedback(description, skeleton, solution, coverage=None):
 
 # 각 카테고리에 대해 구체적이고 정확한 피드백을 제공하세요. 각 카테고리 별 피드백은 필요한 경우 최대 6문장까지로 작성하세요. 피드백 외의 다른 텍스트는 포함하지 마세요."""
 
-    # System 메시지 준비
-    system_message = """You are a programming code reviewer. You should analyze the given algorithm problem, skeleton code, code coverage data (if available), and submitted solution to provide detailed feedback. The feedback should be structured into the following 6 categories:
+#     # System 메시지 준비
+#     system_message = """You are a programming code reviewer. You should analyze the given algorithm problem, skeleton code, code coverage data (if available), and submitted solution to provide detailed feedback. The feedback should be structured into the following 6 categories:
     
-1. Code Implementation Accuracy: Feedback on whether the code accurately solves the actual problem, handles all exceptions and errors, and executes properly.
-2. Code Style: Feedback on whether variable naming, spacing, bracket handling, commenting, etc. are applied according to standard conventions.
-3. Unnecessary Code: Review and provide improvement suggestions for any code that is not executed or unnecessary.
-4. Code Efficiency: Feedback on whether frequently used code is modularized into functions, if standard libraries could be used to reduce code, or if there are areas that could be optimized.
-5. Unconsidered Cases: Feedback on whether the code implementation, while functioning properly for the algorithm, fails to consider specific cases of the algorithm.
-6. Overall Feedback: As a conclusion, summarize the overall feedback.
+# 1. Code Implementation Accuracy: Feedback on whether the code accurately solves the actual problem, handles all exceptions and errors, and executes properly.
+# 2. Code Style: Feedback on whether variable naming, spacing, bracket handling, commenting, etc. are applied according to standard conventions.
+# 3. Unnecessary Code: Review and provide improvement suggestions for any code that is not executed or unnecessary.
+# 4. Code Efficiency: Feedback on whether frequently used code is modularized into functions, if standard libraries could be used to reduce code, or if there are areas that could be optimized.
+# 5. Unconsidered Cases: Feedback on whether the code implementation, while functioning properly for the algorithm, fails to consider specific cases of the algorithm.
+# 6. Overall Feedback: As a conclusion, summarize the overall feedback.
 
-Provide specific and accurate feedback for each category. Write up to a maximum of 6 sentences for each category's feedback if necessary. Do not include any text other than the feedback.
-"""
+# Provide specific and accurate feedback for each category. Write up to a maximum of 6 sentences for each category's feedback if necessary. Do not include any text other than the feedback.
+# """
+
+    # System 메시지 준비
+    system_message = """You are a programming code reviewer. Your task is to analyze the given algorithm problem, skeleton code, feedback example, code coverage data (if available), and submitted solution to provide detailed feedback. The feedback should be structured into the following 3 categories:
+Unnecessary code
+Bad coding style
+Logical fault
+For each category, you should provide feedback in the following format:
+{
+"Unnecessary code": [
+{
+"line": [line numbers],
+"reason_number": 1 or 2,
+"reason": "Detailed explanation",
+"improved_code": ["Suggested improvement"]
+}
+],
+"Bad coding style": [
+{
+"line": [line numbers],
+"reason_number": 1 or 2,
+"reason": "Detailed explanation",
+"improved_code": ["Suggested improvement"]
+}
+],
+"Logical fault": [
+{
+"line": [line numbers],
+"reason_number": 1 or 2,
+"reason": "Detailed explanation",
+"improved_code": ["Suggested improvement"]
+}
+]
+}
+For each category, use the following guidelines:
+Unnecessary code:
+reason_number 1: Duplicated code that is inefficient due to repetition.
+reason_number 2: Unused code, such as variables or functions that are declared but never used.
+Bad coding style:
+reason_number 1: Poor variable or function names, e.g., using 'a', 'b' instead of descriptive names.
+reason_number 2: Overuse of global variables, making the code's intention unclear.
+Logical fault:
+reason_number 1: Logical errors where the code doesn't execute as intended.
+reason_number 2: Failure to handle edge cases or extreme input values.
+Provide specific and accurate feedback for each category. Ensure that the 'line' field contains an array of relevant line numbers, the 'reason' field explains why the code needs improvement, and the 'improved_code' field suggests how to improve the code. Do not include any text other than the JSON feedback."""
 
     # User 메시지 준비
     user_message = f"""
@@ -44,13 +88,16 @@ problem description:
 skeleton code:
 {skeleton}
 
+feedback example:
+{feedback_example}
+
 submitted solution:
 {solution}
 
 {"code coverage data:" if coverage else ""}
 {coverage if coverage else ""}
 
-Based on the information above, generate feedback according to the 6 categories explained earlier."""
+Based on the information above, generate feedback according to the 3 categories and format explained in the system message. Ensure your response is a valid JSON object."""
 
     # API 요청 데이터 준비
     data = {

@@ -1,17 +1,190 @@
-**Code Implementation Accuracy:**
-The submitted solution uses Tarjan's algorithm to find Strongly Connected Components (SCCs) in a directed graph, which is a correct approach. However, the implementation has a critical flaw: it does not correctly handle the sorting of vertices within each SCC and the ordering of SCCs based on the smallest vertex number. The current implementation does not sort the vertices in each SCC in ascending order, nor does it order the SCCs by the smallest vertex number in each SCC. This does not meet the problem's output requirements.
-
-**Code Style:**
-The code style is generally good, with clear variable naming and proper use of spacing and brackets. However, the function `calculate` is not within a class as specified in the skeleton code, and the use of `nonlocal` for the `id` variable could be avoided by encapsulating it within a class or using a different design pattern. Comments explaining the purpose of each section of the code would improve readability.
-
-**Unnecessary Code:**
-There is no unnecessary code in the submitted solution. All parts of the code contribute to the functionality of finding and printing SCCs.
-
-**Code Efficiency:**
-The solution uses Tarjan's algorithm, which is efficient for finding SCCs in a directed graph. However, the implementation could be optimized by sorting the SCCs and their vertices as required by the problem statement without adding significant computational overhead. Using built-in sorting functions would be more efficient than implementing custom sorting algorithms.
-
-**Unconsidered Cases:**
-The solution does not consider the case where the input graph might be empty (i.e., V=0 or E=0), which could lead to errors or unexpected behavior. Additionally, it does not handle the case where the input might be malformed (e.g., non-integer values for V, E, A, or B). Error handling for such cases should be added to make the solution more robust.
-
-**Overall Feedback:**
-The submitted solution is a good start but needs improvements in handling the sorting and ordering requirements specified in the problem statement. Additionally, it should be encapsulated within a class as per the skeleton code, and error handling for edge cases should be added. With these adjustments, the solution will be more accurate, robust, and in line with the problem's requirements.
+```json
+{
+  "Unnecessary code": [
+    {
+      "line": [],
+      "reason_number": 0,
+      "reason": "",
+      "improved_code": []
+    }
+  ],
+  "Bad coding style": [
+    {
+      "line": [
+        1
+      ],
+      "reason_number": 1,
+      "reason": "The function name \"calculate\" does not match its role.",
+      "improved_code": [
+        "def Graph_to_SCC(input: str)->str:"
+      ]
+    },
+    {
+      "line": [
+        1,
+        11
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"s\" is not clear.",
+      "improved_code": [
+        "def Graph_to_SCC(input: str)->str:",
+        "    input_lines = input.strip().split(\"\n\")"
+      ]
+    },
+    {
+      "line": [
+        10,
+        11,
+        19
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"lines\" is not clear.",
+      "improved_code": [
+        "    input_lines=s.strip().split(\"\n\")",
+        "    V, E = map(int, input_lines[0].split())",
+        "    for input_line in input_lines[1:]:"
+      ]
+    },
+    {
+      "line": [
+        19,
+        20
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"line\" is not clear.",
+      "improved_code": [
+        "    for input_line in input_lines[1:]:",
+        "       origin, destination = map(int, input_line.split())"
+      ]
+    },
+    {
+      "line": [
+        20,
+        21
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"A\" and \"B\" are not clear.",
+      "improved_code": [
+        "       origin, destination = map(int, input_line.split())",
+        "       G[origin].append(destination)"
+      ]
+    },
+    {
+      "line": [
+        25,
+        28,
+        29,
+        31,
+        32,
+        37,
+        43
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"n\" is not clear.",
+      "improved_code": [
+        "    def dfs(origin):",
+        "        visited[origin] = cnt",
+        "        stack.append(origin)",
+        "        p = visited[origin]",
+        "        for destination in G[origin]:",
+        "        if p == visited[origin]:",
+        "                if t == origin:"
+      ]
+    },
+    {
+      "line": [
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"x\" is not clear.",
+      "improved_code": [
+        "        for destination in G[origin]:",
+        "            if visited[destination] == NOTVISIT:",
+        "                p = min(p, dfs(destination))",
+        "            elif visited[destination] != VISIT:",
+        "                p = min(p, visited[destination])"
+      ]
+    },
+    {
+      "line": [
+        31,
+        34,
+        36,
+        37,
+        48
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"p\" is not clear.",
+      "improved_code": [
+        "        parent = visited[origin]",
+        "                parent = min(parent, dfs(destination))",
+        "                parent = min(parent, visited[destination])",
+        "        if parent == visited[origin]:",
+        "        return parent"
+      ]
+    },
+    {
+      "line": [
+        38,
+        41,
+        45,
+        46
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"temp\" is not clear.",
+      "improved_code": [
+        "            SCC = []",
+        "                SCC.append(SCC_node)",
+        "            SCC.sort()",
+        "            answer.append(SCC)"
+      ]
+    },
+    {
+      "line": [
+        40,
+        41,
+        42,
+        43
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"temp\" is not clear.",
+      "improved_code": [
+        "                SCC_node = stack.pop()",
+        "                SCC.append(SCC_node)",
+        "                visited[SCC_node] = VISIT",
+        "                if SCC_node == origin:"
+      ]
+    },
+    {
+      "line": [
+        51,
+        52,
+        53
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"i\" is not clear.",
+      "improved_code": [
+        "    for node in range(1, V + 1):",
+        "        if visited[node] == NOTVISIT:",
+        "            dfs(node)"
+      ]
+    }
+  ],
+  "Logical fault": [
+    {
+      "line": [
+        45
+      ],
+      "reason_number": 1,
+      "reason": "The SCCs are not sorted by the smallest vertex number in each SCC.",
+      "improved_code": [
+        "    answer.sort(key=lambda x: min(x))"
+      ]
+    }
+  ]
+}
+```

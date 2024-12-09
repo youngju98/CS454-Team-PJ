@@ -1,17 +1,88 @@
-**Code Implementation Accuracy:**
-The submitted solution generally follows the correct approach to solve the problem by identifying islands, calculating distances between them, and applying a union-find algorithm to connect the islands with the minimum total cost. However, the solution does not handle all edge cases properly, such as when there are more than two islands that cannot be connected. The condition `num != mark - 2` might not be sufficient to cover all scenarios where islands cannot be connected. The solution needs to be refined to handle such cases accurately.
-
-**Code Style:**
-The code style is mostly consistent with standard Python conventions. However, variable naming could be improved for better readability. For example, `dir` could be renamed to `directions`, and `q` could be renamed to `queue`. Additionally, comments explaining the purpose of each function and critical sections of the code would enhance understandability.
-
-**Unnecessary Code:**
-The code does not contain unnecessary or redundant parts that are not executed. However, some lines are not covered by the test cases, indicating potential issues with the test suite rather than unnecessary code. Ensuring that all code paths are tested is crucial.
-
-**Code Efficiency:**
-The solution uses efficient algorithms such as BFS for marking islands and calculating distances, and a union-find algorithm for connecting islands. However, the `getDist` function could be optimized by stopping the BFS as soon as it finds another island, rather than exploring all directions exhaustively. This would reduce unnecessary computations.
-
-**Unconsidered Cases:**
-The solution does not explicitly handle cases where there are more than two islands that cannot be connected due to the constraints of the problem (e.g., bridges cannot cross over other islands). The solution assumes that if the number of unions is not `mark - 2`, it is impossible to connect all islands, which might not cover all scenarios. Additional checks and handling for such cases are necessary.
-
-**Overall Feedback:**
-The solution is generally on the right track but needs refinement in handling edge cases and optimizing certain algorithms. Improving variable naming and adding comments will enhance code readability. Ensuring that all code paths are tested is also crucial. With these adjustments, the solution will be more robust and efficient.
+```json
+{
+  "Unnecessary code": [
+    {
+      "line": [
+        24,
+        37,
+        48,
+        49,
+        54,
+        68,
+        78,
+        79,
+        80
+      ],
+      "reason_number": 2,
+      "reason": "These lines are not covered by the test cases, indicating they might be unnecessary or unreachable under current test conditions.",
+      "improved_code": [
+        "Review the logic and test cases to ensure these lines are necessary and can be executed."
+      ]
+    }
+  ],
+  "Bad coding style": [
+    {
+      "line": [
+        1
+      ],
+      "reason_number": 1,
+      "reason": "The function name 'calculate' does not clearly indicate its purpose.",
+      "improved_code": [
+        "def bridge_building(input: str) -> int:"
+      ]
+    },
+    {
+      "line": [
+        1,
+        11
+      ],
+      "reason_number": 1,
+      "reason": "The variable name 's' is not descriptive.",
+      "improved_code": [
+        "def bridge_building(input: str) -> int:",
+        "    input_lines = input.strip().split('\\n')"
+      ]
+    },
+    {
+      "line": [
+        10,
+        11,
+        19
+      ],
+      "reason_number": 1,
+      "reason": "The variable name 'lines' is not clear.",
+      "improved_code": [
+        "    input_lines = input.strip().split('\\n')",
+        "    n, m = map(int, input_lines[0].split())",
+        "    for input_line in input_lines[1:]"
+      ]
+    },
+    {
+      "line": [
+        19,
+        20
+      ],
+      "reason_number": 1,
+      "reason": "The variable name 'line' is not clear.",
+      "improved_code": [
+        "    for input_line in input_lines[1:]",
+        "       graph.append(list(map(int, input_line.split())))"
+      ]
+    }
+  ],
+  "Logical fault": [
+    {
+      "line": [
+        78,
+        79,
+        80
+      ],
+      "reason_number": 1,
+      "reason": "The logic for calculating the minimum total length of bridges and handling the connection of islands is complex and might not cover all edge cases.",
+      "improved_code": [
+        "Review the logic for calculating the minimum total length of bridges and ensure it correctly handles all possible scenarios, including edge cases."
+      ]
+    }
+  ]
+}
+```

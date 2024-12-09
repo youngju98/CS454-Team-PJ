@@ -1,17 +1,186 @@
-**Code Implementation Accuracy:**
-The submitted solution accurately solves the problem of finding Strongly Connected Components (SCCs) in a directed graph. It correctly implements Tarjan's algorithm, which is a well-known method for finding SCCs. The code handles all the necessary steps, including parsing the input, initializing variables, performing DFS, identifying SCCs, and preparing the output in the required format. However, the function name `calculate` does not accurately reflect its purpose, which is to find SCCs. The input parsing assumes a specific string format, which might not be robust against different input formats.
-
-**Code Style:**
-The code style is generally good, with proper indentation and use of whitespace. However, the variable names could be more descriptive. For example, `d` could be renamed to something like `discovery_time`, and `on_stack` could be `is_on_stack`. The function `dfs` is nested inside the main function, which might not be necessary and could be moved outside for better readability. Comments are minimal and could be expanded to explain the logic and purpose of each section of the code.
-
-**Unnecessary Code:**
-There is no unnecessary code in the submitted solution. All parts of the code are used to solve the problem. However, the initial function definition `class Solution: def calculate(self, s: str) -> str:` is not used and seems to be a remnant of a different problem or template.
-
-**Code Efficiency:**
-The code is efficient in terms of time complexity, as it uses Tarjan's algorithm, which has a time complexity of O(V + E), where V is the number of vertices and E is the number of edges. This is optimal for finding SCCs in a directed graph. The use of a stack and arrays to keep track of visited nodes and their discovery times also contributes to the efficiency. However, the sorting of the SCC list at the end could potentially be avoided if the SCCs were inserted in sorted order initially.
-
-**Unconsidered Cases:**
-The code does not explicitly handle the case where the input graph is empty (i.e., V = 0). While the code might still work in this case, it would be clearer to explicitly handle this edge case. Additionally, the code assumes that the input is well-formed and does not contain any errors. Adding some basic error checking to handle invalid inputs would make the code more robust.
-
-**Overall Feedback:**
-The submitted solution is accurate and efficient in solving the problem of finding Strongly Connected Components in a directed graph. However, there are some areas for improvement, including more descriptive variable names, better code organization, and additional comments to explain the logic. Handling edge cases and adding error checking would also enhance the robustness of the code. With these improvements, the code would be more readable, maintainable, and reliable.
+```json
+{
+  "Unnecessary code": [
+    {
+      "line": [],
+      "reason_number": 0,
+      "reason": "",
+      "improved_code": []
+    }
+  ],
+  "Bad coding style": [
+    {
+      "line": [
+        1
+      ],
+      "reason_number": 1,
+      "reason": "The function name \"calculate\" does not match its role.",
+      "improved_code": [
+        "def Graph_to_SCC(input: str)->str:"
+      ]
+    },
+    {
+      "line": [
+        1,
+        11
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"s\" is not clear.",
+      "improved_code": [
+        "def Graph_to_SCC(input: str)->str:",
+        "    input_lines = input.strip().split(\"\n\")"
+      ]
+    },
+    {
+      "line": [
+        10,
+        11,
+        19
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"lines\" is not clear.",
+      "improved_code": [
+        "    input_lines=s.strip().split(\"\n\")",
+        "    V, E = map(int, input_lines[0].split())",
+        "    for input_line in input_lines[1:]:"
+      ]
+    },
+    {
+      "line": [
+        19,
+        20
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"line\" is not clear.",
+      "improved_code": [
+        "    for input_line in input_lines[1:]:",
+        "       origin, destination = map(int, input_line.split())"
+      ]
+    },
+    {
+      "line": [
+        20,
+        21
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"A\" and \"B\" are not clear.",
+      "improved_code": [
+        "       origin, destination = map(int, input_line.split())",
+        "       G[origin].append(destination)"
+      ]
+    },
+    {
+      "line": [
+        25,
+        28,
+        29,
+        31,
+        32,
+        37,
+        43
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"n\" is not clear.",
+      "improved_code": [
+        "    def dfs(origin):",
+        "        visited[origin] = cnt",
+        "        stack.append(origin)",
+        "        p = visited[origin]",
+        "        for destination in G[origin]:",
+        "        if p == visited[origin]:",
+        "                if t == origin:"
+      ]
+    },
+    {
+      "line": [
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"x\" is not clear.",
+      "improved_code": [
+        "        for destination in G[origin]:",
+        "            if visited[destination] == NOTVISIT:",
+        "                p = min(p, dfs(destination))",
+        "            elif visited[destination] != VISIT:",
+        "                p = min(p, visited[destination])"
+      ]
+    },
+    {
+      "line": [
+        31,
+        34,
+        36,
+        37,
+        48
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"p\" is not clear.",
+      "improved_code": [
+        "        parent = visited[origin]",
+        "                parent = min(parent, dfs(destination))",
+        "                parent = min(parent, visited[destination])",
+        "        if parent == visited[origin]:",
+        "        return parent"
+      ]
+    },
+    {
+      "line": [
+        38,
+        41,
+        45,
+        46
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"temp\" is not clear.",
+      "improved_code": [
+        "            SCC = []",
+        "                SCC.append(SCC_node)",
+        "            SCC.sort()",
+        "            answer.append(SCC)"
+      ]
+    },
+    {
+      "line": [
+        40,
+        41,
+        42,
+        43
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"temp\" is not clear.",
+      "improved_code": [
+        "                SCC_node = stack.pop()",
+        "                SCC.append(SCC_node)",
+        "                visited[SCC_node] = VISIT",
+        "                if SCC_node == origin:"
+      ]
+    },
+    {
+      "line": [
+        51,
+        52,
+        53
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"i\" is not clear.",
+      "improved_code": [
+        "    for node in range(1, V + 1):",
+        "        if visited[node] == NOTVISIT:",
+        "            dfs(node)"
+      ]
+    }
+  ],
+  "Logical fault": [
+    {
+      "line": [],
+      "reason_number": 0,
+      "reason": "",
+      "improved_code": []
+    }
+  ]
+}
+```

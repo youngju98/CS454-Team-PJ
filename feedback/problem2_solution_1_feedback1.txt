@@ -1,17 +1,74 @@
-**Code Implementation Accuracy:**
-The submitted solution accurately solves the problem by identifying islands, calculating distances between them, and applying a union-find algorithm to connect the islands with the minimum total cost. However, the solution does not handle the case where there is only one island correctly, as it checks if `num != mark - 2`, which would fail if there's only one island. The condition should be adjusted to handle this edge case.
-
-**Code Style:**
-The code follows standard conventions in terms of variable naming, spacing, and bracket handling. However, some function names like `condition` and `marking` could be more descriptive. Additionally, comments explaining the purpose of each function and the logic behind the solution would improve readability.
-
-**Unnecessary Code:**
-The function `calculate(s: str) -> int` seems to be a leftover from a different problem and does not relate to the current problem. It should be removed to avoid confusion. The `calculate` function in the class `Solution` is also unrelated and should be removed or replaced with the actual solution.
-
-**Code Efficiency:**
-The solution uses a breadth-first search (BFS) to mark islands and calculate distances, which is efficient. The use of a union-find algorithm to connect islands is also appropriate. However, the solution could be optimized by using a more efficient data structure for storing edges, such as a heap, to reduce the time complexity of sorting edges.
-
-**Unconsidered Cases:**
-The solution does not explicitly handle the case where it is impossible to connect all islands due to the constraints of the grid size or the positions of the islands. Although it returns -1 in such cases, it does so based on the condition `num != mark - 2`, which might not cover all scenarios. A more robust check should be implemented to handle these cases accurately.
-
-**Overall Feedback:**
-The solution is generally correct and efficient but needs improvements in handling edge cases, code organization, and readability. Removing unnecessary code, adding descriptive comments, and optimizing data structures will enhance the solution's quality and robustness. Additionally, a more comprehensive check for impossible cases should be implemented to ensure the solution's accuracy.
+```json
+{
+  "Unnecessary code": [
+    {
+      "line": [],
+      "reason_number": 2,
+      "reason": "There is no unnecessary code in the provided solution.",
+      "improved_code": []
+    }
+  ],
+  "Bad coding style": [
+    {
+      "line": [
+        1
+      ],
+      "reason_number": 1,
+      "reason": "The function name 'calculate' does not match its role.",
+      "improved_code": [
+        "def bridge_building(input: str) -> int:"
+      ]
+    },
+    {
+      "line": [
+        1,
+        11
+      ],
+      "reason_number": 1,
+      "reason": "The variable name 's' is not clear.",
+      "improved_code": [
+        "def bridge_building(input: str) -> int:",
+        "    input_lines = input.strip().split('\\n')"
+      ]
+    },
+    {
+      "line": [
+        10,
+        11,
+        19
+      ],
+      "reason_number": 1,
+      "reason": "The variable name 'lines' is not clear.",
+      "improved_code": [
+        "    input_lines = input.strip().split('\\n')",
+        "    n, m = map(int, input_lines[0].split())",
+        "    for input_line in input_lines[1:]"
+      ]
+    },
+    {
+      "line": [
+        19,
+        20
+      ],
+      "reason_number": 1,
+      "reason": "The variable name 'line' is not clear.",
+      "improved_code": [
+        "    for input_line in input_lines[1:]",
+        "       graph.append(list(map(int, input_line.split())))"
+      ]
+    }
+  ],
+  "Logical fault": [
+    {
+      "line": [],
+      "reason_number": 2,
+      "reason": "The solution does not handle the case where it is impossible to connect all islands correctly.",
+      "improved_code": [
+        "if result == 0 or num != mark - 2:",
+        "    return -1",
+        "This check should be revised to accurately reflect the conditions under which it is impossible to connect all islands."
+      ]
+    }
+  ]
+}
+```

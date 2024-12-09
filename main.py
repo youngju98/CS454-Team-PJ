@@ -12,6 +12,7 @@ def process_solution(problem_name, i, solution, problem_data, output_dir):
         feedback1 = generate_feedback(
             problem_data['description'],
             problem_data['skeleton'],
+            problem_data['feedback_example'],
             solution
         )
 
@@ -19,6 +20,7 @@ def process_solution(problem_name, i, solution, problem_data, output_dir):
         feedback2 = generate_feedback(
             problem_data['description'],
             problem_data['skeleton'],
+            problem_data['feedback_example'],
             solution,
             problem_data['coverage'][i-1]
         )

@@ -1,17 +1,186 @@
-**Code Implementation Accuracy:**
-The submitted solution does not accurately solve the problem as described. It incorrectly implements Tarjan's algorithm instead of Kosaraju's algorithm for finding Strongly Connected Components (SCCs). The problem statement specifically asks for Kosaraju's algorithm, which involves two DFS traversals: one on the original graph to determine the finishing times of vertices and another on the transposed graph to find SCCs[1][2][3]. The solution provided does not transpose the graph and uses Tarjan's algorithm, which is a different method for finding SCCs.
-
-**Code Style:**
-The code style is mostly consistent with standard conventions. However, the function name `calculate` does not accurately describe its purpose, which is to find and print SCCs. Variable naming is clear, and spacing is properly handled. Comments are lacking, which makes understanding the code's intent more difficult.
-
-**Unnecessary Code:**
-The line `sys.setrecursionlimit(10**6)` is unnecessary unless the problem specifically mentions or implies deep recursion that exceeds Python's default limit. This line should be justified or removed.
-
-**Code Efficiency:**
-The code is not efficient for the problem it is supposed to solve. It uses Tarjan's algorithm instead of Kosaraju's, which was specified. Kosaraju's algorithm is efficient for finding SCCs in a directed graph and involves two DFS traversals, which are not implemented here[2][3].
-
-**Unconsidered Cases:**
-The solution does not consider the requirement to use Kosaraju's algorithm, which is a critical part of the problem statement. It also does not handle the case where the input graph might not be strongly connected, which is an essential consideration for finding SCCs.
-
-**Overall Feedback:**
-The submitted solution does not meet the problem's requirements as it incorrectly uses Tarjan's algorithm instead of Kosaraju's. It lacks proper comments, includes unnecessary code, and does not efficiently solve the problem as specified. The solution needs to be rewritten to accurately implement Kosaraju's algorithm for finding SCCs in a directed graph.
+```
+{
+  "Unnecessary code": [
+    {
+      "line": [],
+      "reason_number": 0,
+      "reason": "No unnecessary code found.",
+      "improved_code": []
+    }
+  ],
+  "Bad coding style": [
+    {
+      "line": [
+        1
+      ],
+      "reason_number": 1,
+      "reason": "The function name \"calculate\" does not match its role.",
+      "improved_code": [
+        "def Graph_to_SCC(input: str)->str:"
+      ]
+    },
+    {
+      "line": [
+        1,
+        11
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"s\" is not clear.",
+      "improved_code": [
+        "def Graph_to_SCC(input: str)->str:",
+        "    input_lines = input.strip().split(\"\n\")"
+      ]
+    },
+    {
+      "line": [
+        10,
+        11,
+        19
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"lines\" is not clear.",
+      "improved_code": [
+        "    input_lines=s.strip().split(\"\n\")",
+        "    V, E = map(int, input_lines[0].split())",
+        "    for input_line in input_lines[1:]:"
+      ]
+    },
+    {
+      "line": [
+        19,
+        20
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"line\" is not clear.",
+      "improved_code": [
+        "    for input_line in input_lines[1:]:",
+        "       origin, destination = map(int, input_line.split())"
+      ]
+    },
+    {
+      "line": [
+        20,
+        21
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"A\" and \"B\" are not clear.",
+      "improved_code": [
+        "       origin, destination = map(int, input_line.split())",
+        "       G[origin].append(destination)"
+      ]
+    },
+    {
+      "line": [
+        25,
+        28,
+        29,
+        31,
+        32,
+        37,
+        43
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"n\" is not clear.",
+      "improved_code": [
+        "    def dfs(origin):",
+        "        visited[origin] = cnt",
+        "        stack.append(origin)",
+        "        p = visited[origin]",
+        "        for destination in G[origin]:",
+        "        if p == visited[origin]:",
+        "                if t == origin:"
+      ]
+    },
+    {
+      "line": [
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"x\" is not clear.",
+      "improved_code": [
+        "        for destination in G[origin]:",
+        "            if visited[destination] == NOTVISIT:",
+        "                p = min(p, dfs(destination))",
+        "            elif visited[destination] != VISIT:",
+        "                p = min(p, visited[destination])"
+      ]
+    },
+    {
+      "line": [
+        31,
+        34,
+        36,
+        37,
+        48
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"p\" is not clear.",
+      "improved_code": [
+        "        parent = visited[origin]",
+        "                parent = min(parent, dfs(destination))",
+        "                parent = min(parent, visited[destination])",
+        "        if parent == visited[origin]:",
+        "        return parent"
+      ]
+    },
+    {
+      "line": [
+        38,
+        41,
+        45,
+        46
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"temp\" is not clear.",
+      "improved_code": [
+        "            SCC = []",
+        "                SCC.append(SCC_node)",
+        "            SCC.sort()",
+        "            answer.append(SCC)"
+      ]
+    },
+    {
+      "line": [
+        40,
+        41,
+        42,
+        43
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"temp\" is not clear.",
+      "improved_code": [
+        "                SCC_node = stack.pop()",
+        "                SCC.append(SCC_node)",
+        "                visited[SCC_node] = VISIT",
+        "                if SCC_node == origin:"
+      ]
+    },
+    {
+      "line": [
+        51,
+        52,
+        53
+      ],
+      "reason_number": 1,
+      "reason": "The variable name \"i\" is not clear.",
+      "improved_code": [
+        "    for node in range(1, V + 1):",
+        "        if visited[node] == NOTVISIT:",
+        "            dfs(node)"
+      ]
+    }
+  ],
+  "Logical fault": [
+    {
+      "line": [],
+      "reason_number": 0,
+      "reason": "No logical faults found.",
+      "improved_code": []
+    }
+  ]
+}
+```

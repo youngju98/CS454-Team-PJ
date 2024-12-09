@@ -1,17 +1,38 @@
-**Code Implementation Accuracy:**
-The submitted solution accurately implements Kruskal's algorithm to find the Minimum Spanning Tree (MST) of a given graph. It correctly sorts the edges by weight, uses a union-find data structure to avoid cycles, and sums the weights of the included edges. However, the function name `calculate` does not accurately reflect its purpose, and the class `Solution` is not utilized. The input string parsing is also specific to the problem format and might not be robust for different input formats.
-
-**Code Style:**
-The code style is mostly clear and follows standard Python conventions. However, the function name `calculate` is misleading and should be renamed to something like `find_mst_weight`. The variable names are concise but could be more descriptive. For example, `e` could be `edges`, `p` could be `parent`, and `V` and `E` could be `num_vertices` and `num_edges`, respectively.
-
-**Unnecessary Code:**
-There is no unnecessary code in the submitted solution. All parts of the code are used to solve the problem.
-
-**Code Efficiency:**
-The code is efficient as it uses Kruskal's algorithm, which has a time complexity of O(E log E) or O(E log V) for sorting the edges, and the union-find operations are optimized with path compression, leading to an overall efficient solution. However, the input parsing could be more efficient if it used a more structured approach rather than string manipulation.
-
-**Unconsidered Cases:**
-The code handles the main cases correctly but does not explicitly check for invalid inputs such as negative vertex numbers, edges with non-integer weights, or graphs that are not connected. While the problem statement guarantees these conditions, defensive programming practices suggest including checks for such cases.
-
-**Overall Feedback:**
-The submitted solution is accurate and efficient for finding the Minimum Spanning Tree weight using Kruskal's algorithm. However, improvements can be made in code style, function naming, and input handling for better readability and robustness. Additionally, including checks for invalid inputs can enhance the solution's reliability.
+```json
+{
+  "Unnecessary code": [],
+  "Bad coding style": [
+    {
+      "line": [1],
+      "reason_number": 1,
+      "reason": "The function name \"calculate\" does not match its role.",
+      "improved_code": ["def find_minimum_spanning_tree(input: str)->int:"]
+    },
+    {
+      "line": [1, 11],
+      "reason_number": 1,
+      "reason": "The variable name \"s\" is not clear.",
+      "improved_code": ["def find_minimum_spanning_tree(input: str)->int:", "    input_lines = input.strip().split(\"\\n\")"]
+    },
+    {
+      "line": [10, 11, 19],
+      "reason_number": 1,
+      "reason": "The variable name \"lines\" is not clear.",
+      "improved_code": ["    input_lines = input.strip().split(\"\\n\")", "    V, E = map(int, input_lines[0].split())", "    for input_line in input_lines[1:]:"]
+    },
+    {
+      "line": [19, 20],
+      "reason_number": 1,
+      "reason": "The variable name \"line\" is not clear.",
+      "improved_code": ["    for input_line in input_lines[1:]:", "       edge_info = map(int, input_line.split())"]
+    },
+    {
+      "line": [20, 21],
+      "reason_number": 1,
+      "reason": "The variable name \"A\" and \"B\" are not clear.",
+      "improved_code": ["       origin, destination, cost = map(int, input_line.split())", "       edges.append((origin, destination, cost))"]
+    }
+  ],
+  "Logical fault": []
+}
+```

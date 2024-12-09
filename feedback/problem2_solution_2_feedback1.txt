@@ -1,17 +1,82 @@
-**Code Implementation Accuracy:**
-The submitted solution generally addresses the problem of connecting islands with bridges of minimum total length. However, it lacks a clear and efficient algorithm to handle all possible cases, especially in ensuring that all islands are connected if possible. The solution does not explicitly check for the connectivity of all islands before returning the total length, which might lead to incorrect results in certain scenarios.
-
-**Code Style:**
-The code does not follow standard naming conventions and lacks clear comments to explain the logic behind each section. Variable names such as `s`, `country`, `used`, `edge`, and `queue` are not descriptive. The code structure is somewhat disorganized, making it difficult to understand the flow of the program.
-
-**Unnecessary Code:**
-The function `calculate(s: str) -> int` seems to be a leftover from a different problem and does not relate to the current task. The variable `s` is used to parse input, but the problem statement suggests that the input should be handled differently. The initial part of the code that reads input from a string can be simplified or removed if the input format is adjusted according to the problem statement.
-
-**Code Efficiency:**
-The solution uses BFS to mark islands, which is efficient. However, the approach to find bridges by checking rows and columns separately and then grouping them is not optimal. A more efficient approach would be to use a graph algorithm to find the minimum spanning tree of the islands, treating each island as a node and the bridges as edges with weights equal to their lengths.
-
-**Unconsidered Cases:**
-The solution does not explicitly handle the case where it is impossible to connect all islands. Although it returns -1 when no edges are found, it does not guarantee that all islands are connected in the final solution. A more robust approach would involve checking the connectivity of the graph after adding bridges.
-
-**Overall Feedback:**
-The solution needs significant improvements in terms of code organization, efficiency, and handling of all possible cases. Adopting a more structured approach, such as using a minimum spanning tree algorithm, would enhance the solution's accuracy and efficiency. Additionally, adhering to standard coding practices and including clear comments would improve the code's readability and maintainability.
+```json
+{
+  "Unnecessary code": [
+    {
+      "line": [1],
+      "reason_number": 2,
+      "reason": "The function 'calculate' is not used and seems to be a leftover from a different problem.",
+      "improved_code": ["Remove the function 'calculate' as it is not used in the solution."]
+    }
+  ],
+  "Bad coding style": [
+    {
+      "line": [1],
+      "reason_number": 1,
+      "reason": "The function name 'calculate' does not match its role.",
+      "improved_code": ["def bridge_building(input: str) -> int:"]
+    },
+    {
+      "line": [10, 11, 19],
+      "reason_number": 1,
+      "reason": "The variable name 'lines' is not clear.",
+      "improved_code": ["input_lines = s.strip().split('\\n')", "N, M = map(int, input_lines[0].split())", "for input_line in input_lines[1:]:"]
+    },
+    {
+      "line": [19, 20],
+      "reason_number": 1,
+      "reason": "The variable name 'line' is not clear.",
+      "improved_code": ["for input_line in input_lines[1]:", "origin, destination = map(int, input_line.split())"]
+    },
+    {
+      "line": [20, 21],
+      "reason_number": 1,
+      "reason": "The variable names 'A' and 'B' are not clear.",
+      "improved_code": ["origin, destination = map(int, input_line.split())", "G[origin].append(destination)"]
+    },
+    {
+      "line": [25, 28, 29, 31, 32, 37, 43],
+      "reason_number": 1,
+      "reason": "The variable name 'n' is not clear.",
+      "improved_code": ["def dfs(origin):", "visited[origin] = cnt", "stack.append(origin)", "p = visited[origin]", "for destination in G[origin]:", "if p == visited[origin]:", "if t == origin:"]
+    },
+    {
+      "line": [32, 33, 34, 35, 36],
+      "reason_number": 1,
+      "reason": "The variable name 'x' is not clear.",
+      "improved_code": ["for destination in G[origin]:", "if visited[destination] == NOTVISIT:", "p = min(p, dfs(destination))", "elif visited[destination] != VISIT:", "p = min(p, visited[destination])"]
+    },
+    {
+      "line": [31, 34, 36, 37, 48],
+      "reason_number": 1,
+      "reason": "The variable name 'p' is not clear.",
+      "improved_code": ["parent = visited[origin]", "parent = min(parent, dfs(destination))", "parent = min(parent, visited[destination])", "if parent == visited[origin]:", "return parent"]
+    },
+    {
+      "line": [38, 41, 45, 46],
+      "reason_number": 1,
+      "reason": "The variable name 'temp' is not clear.",
+      "improved_code": ["SCC = []", "SCC.append(SCC_node)", "SCC.sort()", "answer.append(SCC)"]
+    },
+    {
+      "line": [40, 41, 42, 43],
+      "reason_number": 1,
+      "reason": "The variable name 'temp' is not clear.",
+      "improved_code": ["SCC_node = stack.pop()", "SCC.append(SCC_node)", "visited[SCC_node] = VISIT", "if SCC_node == origin:"]
+    },
+    {
+      "line": [51, 52, 53],
+      "reason_number": 1,
+      "reason": "The variable name 'i' is not clear.",
+      "improved_code": ["for node in range(1, V + 1):", "if visited[node] == NOTVISIT:", "dfs(node)"]
+    }
+  ],
+  "Logical fault": [
+    {
+      "line": [62],
+      "reason_number": 1,
+      "reason": "The condition for checking if all islands are connected is incorrect.",
+      "improved_code": ["answer = answer if len(connected) == cnt else -1"]
+    }
+  ]
+}
+```
