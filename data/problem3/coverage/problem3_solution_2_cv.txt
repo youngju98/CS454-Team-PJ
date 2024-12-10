@@ -1,22 +1,6 @@
 Coverage Report
 ==================================================
-Coverage Percentage: 60.00%
-
-Uncovered Code Lines:
---------------------------------------------------
-Line 9: A, B, C = map(int, lines[i].split())
-Line 10: edges.append((A, B, C))  # 간선 정보 추가
-Line 25: parent[b] = a
-Line 27: parent[a] = b
-Line 36: union_parent(a, b)
-Line 37: answer += cost
---------------------------------------------------
+Coverage Percentage: 100.00%
 
 Not coverd = {
-    (calculate(s),9),  # A, B, C = map(int, lines[i].split())
-    (calculate(s),10),  # edges.append((A, B, C))  # 간선 정보 추가
-    (calculate(s),25),  # parent[b] = a
-    (calculate(s),27),  # parent[a] = b
-    (calculate(s),36),  # union_parent(a, b)
-    (calculate(s),37),  # answer += cost
 }

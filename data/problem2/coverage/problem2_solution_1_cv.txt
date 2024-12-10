@@ -1,28 +1,6 @@
 Coverage Report
 ==================================================
-Coverage Percentage: 77.50%
-
-Uncovered Code Lines:
---------------------------------------------------
-Line 24: continue
-Line 37: edge.add((cnt - 1, now, graph[i][j]))
-Line 48: marking(i, j, mark)
-Line 49: mark += 1
-Line 54: getDist(i, j, graph[i][j])
-Line 68: parent[b] = parent[a]
-Line 78: num += 1
-Line 79: unionParent(parent, a, b)
-Line 80: result += cost
---------------------------------------------------
+Coverage Percentage: 100.00%
 
 Not coverd = {
-    (calculate(s),24),  # continue
-    (calculate(s),37),  # edge.add((cnt - 1, now, graph[i][j]))
-    (calculate(s),48),  # marking(i, j, mark)
-    (calculate(s),49),  # mark += 1
-    (calculate(s),54),  # getDist(i, j, graph[i][j])
-    (calculate(s),68),  # parent[b] = parent[a]
-    (calculate(s),78),  # num += 1
-    (calculate(s),79),  # unionParent(parent, a, b)
-    (calculate(s),80),  # result += cost
 }

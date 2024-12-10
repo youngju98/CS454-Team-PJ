@@ -1,28 +1,6 @@
 Coverage Report
 ==================================================
-Coverage Percentage: 76.92%
-
-Uncovered Code Lines:
---------------------------------------------------
-Line 29: queue.append((nr, nc))
-Line 30: used.append((nr, nc))
-Line 39: flag = True
-Line 40: start = li[idx]
-Line 45: edge.append((start, li[idx], cnt))
-Line 54: check(row)
-Line 59: check(col)
-Line 79: union(a, b)
-Line 80: total_cost += cost
---------------------------------------------------
+Coverage Percentage: 100.00%
 
 Not coverd = {
-    (calculate(s),29),  # queue.append((nr, nc))
-    (calculate(s),30),  # used.append((nr, nc))
-    (calculate(s),39),  # flag = True
-    (calculate(s),40),  # start = li[idx]
-    (calculate(s),45),  # edge.append((start, li[idx], cnt))
-    (calculate(s),54),  # check(row)
-    (calculate(s),59),  # check(col)
-    (calculate(s),79),  # union(a, b)
-    (calculate(s),80),  # total_cost += cost
 }

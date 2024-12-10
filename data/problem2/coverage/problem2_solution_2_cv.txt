@@ -1,34 +1,16 @@
 Coverage Report
 ==================================================
-Coverage Percentage: 73.91%
+Coverage Percentage: 93.48%
 
 Uncovered Code Lines:
 --------------------------------------------------
-Line 29: queue.append((nr, nc))
-Line 30: used.append((nr, nc))
-Line 39: flag = True
-Line 40: start = li[idx]
-Line 46: edge.append((start, li[idx], cnt))
-Line 55: check(row)
-Line 60: check(col)
 Line 68: yet.append(test)
 Line 69: continue
 Line 71: connected.append(test[0])
-Line 85: continue
-Line 87: connected.append(edge[idx][0])
 --------------------------------------------------
 
 Not coverd = {
-    (calculate(s),29),  # queue.append((nr, nc))
-    (calculate(s),30),  # used.append((nr, nc))
-    (calculate(s),39),  # flag = True
-    (calculate(s),40),  # start = li[idx]
-    (calculate(s),46),  # edge.append((start, li[idx], cnt))
-    (calculate(s),55),  # check(row)
-    (calculate(s),60),  # check(col)
     (calculate(s),68),  # yet.append(test)
     (calculate(s),69),  # continue
     (calculate(s),71),  # connected.append(test[0])
-    (calculate(s),85),  # continue
-    (calculate(s),87),  # connected.append(edge[idx][0])
 }

@@ -1,24 +1,6 @@
 Coverage Report
 ==================================================
-Coverage Percentage: 22.22%
-
-Uncovered Code Lines:
---------------------------------------------------
-Line 11: cols.add(col)
-Line 12: diagonals1.add(row - col)
-Line 13: diagonals2.add(row + col)
-Line 16: solutions += backtrack(row + 1, cols, diagonals1, diagonals2)
-Line 18: cols.remove(col)
-Line 19: diagonals1.remove(row - col)
-Line 20: diagonals2.remove(row + col)
---------------------------------------------------
+Coverage Percentage: 100.00%
 
 Not coverd = {
-    (calculate(s),11),  # cols.add(col)
-    (calculate(s),12),  # diagonals1.add(row - col)
-    (calculate(s),13),  # diagonals2.add(row + col)
-    (calculate(s),16),  # solutions += backtrack(row + 1, cols, diagonals1, diagonals2)
-    (calculate(s),18),  # cols.remove(col)
-    (calculate(s),19),  # diagonals1.remove(row - col)
-    (calculate(s),20),  # diagonals2.remove(row + col)
 }

@@ -1,24 +1,6 @@
 Coverage Report
 ==================================================
-Coverage Percentage: 75.86%
-
-Uncovered Code Lines:
---------------------------------------------------
-Line 3: sys.setrecursionlimit(10**6)
-Line 11: a, b = map(int, line.split())
-Line 12: graph[a - 1].append(b - 1)  # Convert to 0-based index
-Line 22: nonlocal id
-Line 31: parent = min(parent, dfs(next))
-Line 44: break
-Line 51: dfs(i)
---------------------------------------------------
+Coverage Percentage: 100.00%
 
 Not coverd = {
-    (calculate(s),3),  # sys.setrecursionlimit(10**6)
-    (calculate(s),11),  # a, b = map(int, line.split())
-    (calculate(s),12),  # graph[a - 1].append(b - 1)  # Convert to 0-based index
-    (calculate(s),22),  # nonlocal id
-    (calculate(s),31),  # parent = min(parent, dfs(next))
-    (calculate(s),44),  # break
-    (calculate(s),51),  # dfs(i)
 }

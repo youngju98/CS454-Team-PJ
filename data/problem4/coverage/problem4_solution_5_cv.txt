@@ -1,18 +1,6 @@
 Coverage Report
 ==================================================
-Coverage Percentage: 60.00%
-
-Uncovered Code Lines:
---------------------------------------------------
-Line 7: valid = False
-Line 14: count[0] += 1
-Line 17: col[i + 1] = j
-Line 18: recursive(n, i + 1, col, count)
---------------------------------------------------
+Coverage Percentage: 100.00%
 
 Not coverd = {
-    (calculate(s),7),  # valid = False
-    (calculate(s),14),  # count[0] += 1
-    (calculate(s),17),  # col[i + 1] = j
-    (calculate(s),18),  # recursive(n, i + 1, col, count)
 }

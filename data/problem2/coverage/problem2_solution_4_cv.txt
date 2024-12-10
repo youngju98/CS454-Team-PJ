@@ -1,24 +1,6 @@
 Coverage Report
 ==================================================
-Coverage Percentage: 78.12%
-
-Uncovered Code Lines:
---------------------------------------------------
-Line 23: continue
-Line 29: queue.append((nr, nc))
-Line 39: edge.append((li[i], li[j], distance))
-Line 44: check(row)
-Line 50: check(column)
-Line 70: union(a, b)
-Line 71: total_cost += cost
---------------------------------------------------
+Coverage Percentage: 100.00%
 
 Not coverd = {
-    (calculate(s),23),  # continue
-    (calculate(s),29),  # queue.append((nr, nc))
-    (calculate(s),39),  # edge.append((li[i], li[j], distance))
-    (calculate(s),44),  # check(row)
-    (calculate(s),50),  # check(column)
-    (calculate(s),70),  # union(a, b)
-    (calculate(s),71),  # total_cost += cost
 }

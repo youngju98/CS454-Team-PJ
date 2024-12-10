@@ -1,18 +1,6 @@
 Coverage Report
 ==================================================
-Coverage Percentage: 87.10%
-
-Uncovered Code Lines:
---------------------------------------------------
-Line 25: nonlocal cnt
-Line 33: p = min(p, dfs(x))
-Line 43: break
-Line 52: dfs(i)
---------------------------------------------------
+Coverage Percentage: 100.00%
 
 Not coverd = {
-    (calculate(s),25),  # nonlocal cnt
-    (calculate(s),33),  # p = min(p, dfs(x))
-    (calculate(s),43),  # break
-    (calculate(s),52),  # dfs(i)
 }
